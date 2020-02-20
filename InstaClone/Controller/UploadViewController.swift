@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -34,12 +35,60 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func shareButtonClicked(_ sender: Any) {
     
-    
-    
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let media = storageRef.child("media")
+        
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            
+            let uuid = UUID().uuidString
+            let imageRef = media.child("\(uuid).jpeg")
+            imageRef.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    self.pushAlert(title: "Error", message: error?.localizedDescription ?? "Error")
+                } else {
+                    imageRef.downloadURL { (url, error) in
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+                            // Database //
+                            let firestoreDB = Firestore.firestore()
+                            var firestoreRef : DocumentReference? = nil
+                            let firestorePost = ["imageUrl":imageUrl!,
+                                                 "postedBy":Auth.auth().currentUser!.email!,
+                                                 "comment":self.commentText.text!,
+                                                 "date":"date",
+                                                 "likes":0] as [String : Any]
+                            
+                            firestoreRef = firestoreDB.collection("Posts").addDocument(data: firestorePost, completion: { (error) in
+                                if error != nil {
+                                    print("error")
+                                    //self.pushAlert(title: "Error", message: error?.localizedDescription ?? "Error")
+                                }
+                            })
+                            
+                            
+                            
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+        
+        
     }
     
     
     
+    
+    func pushAlert(title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okBtn)
+        present(alert, animated: true, completion: nil)
+    }
     
     
     @objc func chooseImage () {
