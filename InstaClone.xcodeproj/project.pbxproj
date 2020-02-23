@@ -17,6 +17,7 @@
 		8413229A23F87578006A69FB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413229923F87578006A69FB /* FeedViewController.swift */; };
 		8413229C23F8758D006A69FB /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413229B23F8758D006A69FB /* UploadViewController.swift */; };
 		8413229E23F87597006A69FB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413229D23F87597006A69FB /* SettingsViewController.swift */; };
+		841322A123FEE4CF006A69FB /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841322A023FEE4CF006A69FB /* FeedCell.swift */; };
 		943FA4FF9B98D35588CCCDE5 /* Pods_InstaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEAE43D6FF1F020575CB895 /* Pods_InstaClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		8413229923F87578006A69FB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8413229B23F8758D006A69FB /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		8413229D23F87597006A69FB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		841322A023FEE4CF006A69FB /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D15933983800E46018C595D3 /* Pods-InstaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaClone.release.xcconfig"; path = "Target Support Files/Pods-InstaClone/Pods-InstaClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 			children = (
 				8413228323F86818006A69FB /* AppDelegate.swift */,
 				8413228523F86818006A69FB /* SceneDelegate.swift */,
+				841322A223FEE4D5006A69FB /* Views */,
 				8413229F23F875A8006A69FB /* Controller */,
 				8413228923F86818006A69FB /* Main.storyboard */,
 				8413228C23F86818006A69FB /* Assets.xcassets */,
@@ -109,6 +112,14 @@
 				8413229D23F87597006A69FB /* SettingsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		841322A223FEE4D5006A69FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				841322A023FEE4CF006A69FB /* FeedCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841322A123FEE4CF006A69FB /* FeedCell.swift in Sources */,
 				8413228823F86818006A69FB /* ViewController.swift in Sources */,
 				8413229C23F8758D006A69FB /* UploadViewController.swift in Sources */,
 				8413228423F86818006A69FB /* AppDelegate.swift in Sources */,
