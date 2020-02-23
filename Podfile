@@ -11,6 +11,7 @@ target 'InstaClone' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'SDWebImage', '~> 5.0'
 
 
 end

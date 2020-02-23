@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedCell: UITableViewCell {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
-    
+    @IBOutlet weak var documentIDLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
     
@@ -31,6 +32,15 @@ class FeedCell: UITableViewCell {
     
     
     @IBAction func likeButtonClicked(_ sender: Any) {
+        
+        let fireStoreDatabase = Firestore.firestore()
+        if let likeCount = Int(likesLabel.text!) {
+            
+            let likeStore = ["likes" : likeCount + 1] as [String : Any]
+            
+            fireStoreDatabase.collection("Posts").document(documentIDLabel.text!).setData(likeStore, merge: true)
+        }
+        
         
     }
     
